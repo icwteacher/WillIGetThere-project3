@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fietsroute met Windinformatie</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-h5CKNbSke3cGdKIfwJO8npSxIXlytU"></script>
+    <style>
+      #map { height: 500px; width: 100%; }
+    </style>
+  </head>
+  <body>
+    <input id="start" placeholder="Startlocatie" type="text" />
+    <input id="end" placeholder="Eindlocatie" type="text" />
+    <button onclick="calculateRoute()">Route berekenen</button>
+    <div id="map"></div>
+    <div id="info"></div>
+    <div id="wind-info">
+      <h3>Windinformatie</h3>
+      <p id="wind-details">Nog geen gegevens beschikbaar.</p>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
