@@ -1,0 +1,3 @@
+Routes Programma
+- Adress validation: toevoegen van een adress controle bij het invoeren. 
+- De persoon geeft zijn batterij zijn maximum energie in en daardoor kan het programma tonen hoeveel procent je nog moet hebben in plaats van gwn de energie.
