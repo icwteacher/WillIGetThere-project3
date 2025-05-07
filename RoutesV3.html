@@ -10,6 +10,21 @@
     </style>
   </head>
   <body>
+    <div class="navbar">
+      <a href="ProjectWebsiteMain.html" id ="ButtonHome">Home</a>
+      <a href="#Over" id ="ButtonOver">Over</a>
+      <a href="ProjectWebsiteContact.html" id= "ButtonContact">Contact</a>
+      <div class="profile-container">
+          <div class="profile-icon" onclick="toggleMenu()">👤</div>
+          <div class="dropdown-menu" id="menu">
+              <p id="username">Naam: </p>
+              <p id="useremail">E-mail: </p>
+              <a href="ProjectWebsiteSignUp.html">Uitloggen</a>
+              <a href="ProjectWebsiteMijnRoutes.html" id="ButtonRoutes">Mijn Routes</a>
+              <a href="ProjectWebsiteProfile.html" id= "ButtonProfile">Profiel</a>
+          </div>
+      </div>
+  </div>
     <input id="start" placeholder="Startlocatie" type="text" />
     <input id="end" placeholder="Eindlocatie" type="text" />
     <button onclick="calculateRoute()">Route berekenen</button>
@@ -28,5 +43,6 @@
     </div>
 
     <script src="scriptRouteV3.js"></script>
+    <script src="ProjectWillIGetThere.js"></script>
   </body>
 </html>

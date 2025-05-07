@@ -3,6 +3,7 @@ body {
   font-family: 'Arial', sans-serif;
   margin: 0;
   padding: 0;
+  padding-top: 60px;;
   background-color: #f4f4f9;
   color: #333;
 }
@@ -13,6 +14,7 @@ h3 {
   margin-bottom: 10px;
   text-align: center;
 }
+
 
 /* Inputvelden en knop */
 input[type="text"] {
@@ -94,6 +96,7 @@ button:active {
     width: 90%; /* Inputvelden nemen bijna de volledige breedte in */
     margin: 10px auto;
     display: block;
+     
   }
 
   button {
@@ -126,6 +129,10 @@ button:active {
     font-size: 12px; /* Maak de tekst in de invoervelden en knop kleiner */
   }
 
+  #start {
+    margin-top: 100px;
+  }
+
   #map {
     height: 200px; /* Maak de kaart nog kleiner op zeer kleine schermen */
   }
@@ -133,4 +140,70 @@ button:active {
   #distance, #wind-details, #battery-details {
     font-size: 10px; /* Maak de tekst nog iets kleiner */
   }
+}
+
+/* Navbar opmaak */
+.profile-container {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+.profile-icon {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 20px;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 50px;
+  background: white;
+  box-shadow: 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: black;
+}
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+}
+.dropdown-menu a:hover {
+  background-color: black;
+  color: white
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  padding: 10px 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+}
+.navbar a:hover {
+  background-color: #444;
+}
+.navbar .profile-container {
+  position: relative;
 }
