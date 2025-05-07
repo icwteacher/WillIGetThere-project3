@@ -1,0 +1,136 @@
+/* Algemene stijlen */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+  color: #333;
+}
+
+/* Header */
+h3 {
+  color: #444;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Inputvelden en knop */
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  margin: 10px 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 123, 255, 0.4);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button:active {
+  background-color: #003f7f;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Kaart */
+#map {
+  height: 500px;
+  width: 100%;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Info-secties */
+#info, #wind-info, #battery-info {
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 600px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#info h3, #wind-info h3, #battery-info h3 {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+#distance, #wind-details, #battery-details {
+  font-size: 14px;
+  color: #555;
+  text-align: center; /* Centreer de tekst */
+}
+
+/* Responsieve stijlen */
+@media (max-width: 768px) {
+  input[type="text"] {
+    width: 90%; /* Inputvelden nemen bijna de volledige breedte in */
+    margin: 10px auto;
+    display: block;
+  }
+
+  button {
+    width: 90%; /* Knop neemt bijna de volledige breedte in */
+    margin: 10px auto;
+    display: block;
+  }
+
+  #map {
+    height: 300px; /* Maak de kaart kleiner op kleinere schermen */
+  }
+
+  #info, #wind-info, #battery-info {
+    padding: 10px;
+    margin: 10px auto;
+    max-width: 90%; /* Info-secties nemen bijna de volledige breedte in */
+  }
+
+  #distance, #wind-details, #battery-details {
+    font-size: 12px; /* Maak de tekst iets kleiner */
+  }
+}
+
+@media (max-width: 480px) {
+  h3 {
+    font-size: 16px; /* Maak de koptekst kleiner */
+  }
+
+  input[type="text"], button {
+    font-size: 12px; /* Maak de tekst in de invoervelden en knop kleiner */
+  }
+
+  #map {
+    height: 200px; /* Maak de kaart nog kleiner op zeer kleine schermen */
+  }
+
+  #distance, #wind-details, #battery-details {
+    font-size: 10px; /* Maak de tekst nog iets kleiner */
+  }
+}
