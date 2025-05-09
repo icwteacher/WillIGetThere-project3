@@ -1,0 +1,9 @@
+<database>
+  <users>
+    <user id="1">
+      <name>Alice</name>
+      <email>alice@example.com</email>
+    </user>
+  </users>
+</database>
+    
