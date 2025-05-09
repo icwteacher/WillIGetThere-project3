@@ -7,7 +7,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-image: url(san-francisco-6950837_640.jpg);
+            background-image: url(kbo-bike-kXP41LVdcv0-unsplash.jpg);
             background-size: cover;
             color: white
         }
@@ -93,3 +93,7 @@
 .navbar .profile-container {
             position: relative;
         }
+.Vraag{
+    height: 200px;
+    width: 200px;
+}
