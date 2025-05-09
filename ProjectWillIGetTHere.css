@@ -7,7 +7,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-image: url(san-francisco-6950837_640.jpg);
+            background-image: url(kbo-bike-kXP41LVdcv0-unsplash.jpg);
             background-size: cover;
             color: white
         }
@@ -81,6 +81,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            z-index: 5;
         }
         .navbar a {
             color: white;
@@ -93,3 +94,20 @@
 .navbar .profile-container {
             position: relative;
         }
+.FormContact{
+    position: relative;
+    top: 100px;
+    z-index: 1;
+    
+}
+.Vraag{
+    height: 200px;
+    width: 200px;
+}
+.container {
+      max-width: 800px;
+      margin: 120px auto 40px; /* ruimte voor navbar */
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }

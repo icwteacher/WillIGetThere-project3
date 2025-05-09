@@ -9,15 +9,7 @@ function toggleMenu() {
             {
                 document.getElementById("menu").style.display = "none";
             }
-        }
-
-document.getElementById('routeForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const startLocation = document.getElementById('startLocation').value;
-            const destinationLocation = document.getElementById('destinationLocation').value;
-            alert(`Route planned from ${startLocation} to ${destinationLocation}`);
-        });
-
+        };
         document.getElementById('signupForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const email = document.getElementById('email').value;
@@ -32,7 +24,7 @@ document.getElementById('routeForm').addEventListener('submit', function(event) 
         if (naam) {
             document.body.innerHTML += `<p>Naam: ${naam}</p>`;
         } else {
-            document.body.innerHTML += "<p>Geen naam ontvangen.</p>";
+            
         }
     });
 function toggleWachtwoord() {
