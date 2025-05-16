@@ -7,31 +7,44 @@
    <link rel="stylesheet" href="ProjectWillIGetTHere.css">
 </head>
 <body>
+    <h1>Route Planner</h1>
 
 
-    <form  method="post" id="signupForm" action = "RoutesV3.html">
+    <form  method="post" id="signupForm" action="registrer.php">
         <h2>Maak een account</h2>
         <script src="ProjectWillIGetThere.js"></script>
-        <input type="email" id="email" placeholder="Email" required>
+        <input type="email" name="email" id="email" placeholder="Email" required>
         <br>
         <br>
-        <input type="text" id="volledige_naam" placeholder="Volledige naam" required>
+        <input type="text" id="volledige_naam" name="volledige_naam" required>
         <br>
         <br>
-        <input type="password" id="wachtwoord" placeholder="Wachtwoord" required>
+        <input type="password" name="wachtwoord" id="wachtwoord" placeholder="Wachtwoord" required>
         <button type="button" onclick="toggleWachtwoord()">👁️</button>
         <br>
         <br>
-        <input type="password" id="herhaal_wachtwoord" placeholder="Herhaal Wachtwoord" required>
+        <input type="password" name="herhaal_wachtwoord"id="herhaal_wachtwoord" placeholder="Herhaal Wachtwoord" required>
         <button type="button" onclick="toggleWachtwoord2()">👁️</button>
         <br>
         <br>
         <button type="submit">Aanmelden</button>
         <br>
         <br>
-        <label>Heb je al een account?  <a href="ProjectWebsiteLogIn.html">login</a></label>
+        
+        <div class="navbar">
+        <a href="#Home">Home</a>
+        <a href="#Over">Over</a>
+        <a href="#Contact">Contact</a>
+        <script src="ProjectWillIGetThere.js"></script>
+        <div class="profile-container">
+            <div class="profile-icon" onclick="toggleMenu()">👤</div>
+            <div class="dropdown-menu" id="menu">
+            <a href="ProjectWebsiteSignUp.html">Inloggen</a>
+            </div>
+        </div>
+    </div>
     </form>
-   
+
    
 </body>
 </html>

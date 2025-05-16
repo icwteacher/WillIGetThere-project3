@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Fietsroute met Windinformatie</title>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBT-h5CKNbSke3cGdKIfwJO8npSxIXlytU"></script>
+    
     <link rel="stylesheet" href="RoutesV3.css">
     <style>
       #map { height: 500px; width: 100%; }
@@ -12,16 +12,17 @@
   <body>
     <div class="navbar">
       <strong>Peeters Cooperation</strong>
-      <a href="ProjectWebsiteMain.html" id ="ButtonHome">Home</a>
-      <a href="ProjectWebsiteContact.html" id= "ButtonContact">Contact</a>
+      <a href="Main.html" id ="ButtonHome">Home</a>
+      <a href="Contact.html" id= "ButtonContact">Contact</a>
+      <a href="RoutesV3.html" id= "ButtonRoute">Route Berekenen</a>
       <div class="profile-container">
           <div class="profile-icon" onclick="toggleMenu()">👤</div>
           <div class="dropdown-menu" id="menu">
               <p id="username">Naam: </p>
               <p id="useremail">E-mail: </p>
-              <a href="ProjectWebsiteSignUp.html">Uitloggen</a>
-              <a href="ProjectWebsiteMijnRoutes.html" id="ButtonRoutes">Mijn Routes</a>
-              <a href="ProjectWebsiteProfile.html" id= "ButtonProfile">Profiel</a>
+              <a href="SignUp.html">Uitloggen</a>
+              <a href="MijnRoutes.html" id="ButtonRoutes">Mijn Routes</a>
+              <a href="Profile.html" id= "ButtonProfile">Profiel</a>
           </div>
       </div>
   </div>
@@ -42,7 +43,7 @@
       <p id="battery-details">Nog geen gegevens beschikbaar.</p>
     </div>
 
-    <script src="scriptRouteV3.js"></script>
+    <script type="module" src="scriptRouteV3.js"></script>
     <script src="ProjectWillIGetThere.js"></script>
   </body>
 </html>

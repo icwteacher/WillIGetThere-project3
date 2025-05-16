@@ -24,7 +24,7 @@ function toggleMenu() {
         if (naam) {
             document.body.innerHTML += `<p>Naam: ${naam}</p>`;
         } else {
-            document.body.innerHTML += "<p>Geen naam ontvangen.</p>";
+            
         }
     });
 function toggleWachtwoord() {
