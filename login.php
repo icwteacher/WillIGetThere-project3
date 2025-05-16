@@ -1,44 +1,19 @@
 <?php
-// Controleer of het formulier is ingediend
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Haal de gegevens op uit het formulier
-    $email = $_POST['email'] ?? null;
-    $wachtwoord = $_POST['wachtwoord'] ?? null;
+$email = $_POST['email'];
+$wachtwoord = $_POST['wachtwoord'];
 
-    // Controleer of de velden niet leeg zijn
-    if (!$email || !$wachtwoord) {
-        die('Alle velden zijn verplicht.');
-    }
+$xml = simplexml_load_file('gebruikers.xml');
 
-    // Pad naar het XML-bestand
-    $xmlFile = 'users.xml';
-
-    // Controleer of het XML-bestand bestaat
-    if (!file_exists($xmlFile)) {
-        die('Geen gebruikers gevonden. Registreer eerst een account.');
-    }
-
-    // Laad het XML-bestand
-    $xml = simplexml_load_file($xmlFile);
-
-    // Zoek naar de gebruiker in het XML-bestand
-    $gebruikerGevonden = false;
-    foreach ($xml->user as $user) {
-        if ((string) $user->email === $email) {
-            $gebruikerGevonden = true;
-
-            // Controleer of het wachtwoord overeenkomt
-            if ((string) $user->wachtwoord === $wachtwoord) {
-                echo 'Inloggen succesvol! Welkom, ' . htmlspecialchars($user->volledige_naam) . '!';
-            } else {
-                die('Onjuist wachtwoord.');
-            }
-            break;
+foreach ($xml->gebruiker as $gebruiker) {
+    if ((string)$gebruiker->email === $email) {
+        if (password_verify($wachtwoord, (string)$gebruiker->wachtwoord)) {
+            echo "Succesvol ingelogd!";
+            // header("Location: ProjectWebsiteRoute.html");
+            exit;
+        } else {
+            die("Fout wachtwoord.");
         }
     }
-
-    if (!$gebruikerGevonden) {
-        die('Gebruiker niet gevonden.');
-    }
 }
+echo "Gebruiker niet gevonden.";
 ?>
