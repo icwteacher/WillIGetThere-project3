@@ -1,3 +1,6 @@
+import { GOOGLE_API_KEY } from "./config.js";
+import { WEATHER_API_KEY } from "./config.js";
+
 let map;
 let directionsService;
 let directionsRenderer;
@@ -13,6 +16,8 @@ function initMap() {
   directionsRenderer = new google.maps.DirectionsRenderer();
   directionsRenderer.setMap(map);
 }
+window.initMap = initMap;
+window.calculateRoute = calculateRoute;
 
 function calculateRoute() {
   const startAddress = document.getElementById("start").value;
@@ -71,10 +76,10 @@ function getMidpoint(leg) {
 }
 
 function fetchWeatherAt(lat, lng, startLocation, endLocation) {
-  const apiKey = 'c985b9e898649a1dca8580b026294c86'; // Vervang dit door je eigen API-sleutel
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${apiKey}`;
 
-  console.log("API URL:", url); // Controleer de URL
+  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lng}&units=metric&appid=${WEATHER_API_KEY}`;
+
+
 
   fetch(url)
     .then(response => {
@@ -165,4 +170,12 @@ function calculateBatteryNeed(distanceKm, windEffect) {
   return energyNeeded.toFixed(2); // Rond af op 2 decimalen
 }
 
-window.onload = initMap;
+function loadGoogleMapsAPI() {
+  const script = document.createElement("script");
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_API_KEY}&callback=initMap`;
+  console.log("google maps api url:", script.src); // Debugging
+  script.async = true;
+  document.head.appendChild(script);
+}
+
+window.onload = loadGoogleMapsAPI;
