@@ -8,30 +8,21 @@
 </head>
 <body>
     <h1>Route Planner</h1>
+    <form method="post" action="SignUp.php" >
+    <input type="email" name="email" placeholder="Email" required ><br><br>
+    <input type="text"  name="volledige_naam" placeholder="Naam" required><br><br>
+    <input type="password" name="wachtwoord" id="wachtwoord" placeholder="Wachtwoord" required>
+    <button type="button" onclick="toggleWachtwoord()">👁️</button><br><br>
+    <input type="password" name="herhaal_wachtwoord" required id="herhaal_wachtwoord" placeholder="Herhaal Wachtwoord">
+    <button type="button" onclick="toggleWachtwoord2()">👁️</button>
+    <br><br>
 
+    <button type="submit">Aanmelden</button>
+    </form>
 
-    <form  method="post" id="signupForm" action="SignUp.php">
-        <h2>Maak een account</h2>
-        <script src="ProjectWillIGetThere.js"></script>
-        <input type="email" name="email" id="email" placeholder="Email" required>
-        <br>
-        <br>
-        <input type="text" id="volledige_naam" name="volledige_naam" required>
-        <br>
-        <br>
-        <input type="password" name="wachtwoord" id="wachtwoord" placeholder="Wachtwoord" required>
-        <button type="button" onclick="toggleWachtwoord()">👁️</button>
-        <br>
-        <br>
-        <input type="password" name="herhaal_wachtwoord"id="herhaal_wachtwoord" placeholder="Herhaal Wachtwoord" required>
-        <button type="button" onclick="toggleWachtwoord2()">👁️</button>
-        <br>
-        <br>
-        <button type="submit">Aanmelden</button>
-        <br>
-        <br>
+    
         
-        <div class="navbar">
+    <div class="navbar">
         <a href="#Home">Home</a>
         <a href="#Over">Over</a>
         <a href="#Contact">Contact</a>
@@ -43,7 +34,7 @@
             </div>
         </div>
     </div>
-    </form>
+
 
    
 </body>
