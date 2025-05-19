@@ -1,49 +1,49 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Fietsroute met Windinformatie</title>
+<html lang = "nl">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fietsroute met Windinformatie</title>
     
-    <link rel="stylesheet" href="RoutesV3.css">
-    <style>
-      #map { height: 500px; width: 100%; }
-    </style>
-  </head>
-  <body>
-    <div class="navbar">
-      <strong>Peeters Cooperation</strong>
-      <a href="Main.html" id ="ButtonHome">Home</a>
-      <a href="Contact.html" id= "ButtonContact">Contact</a>
-      <a href="RoutesV3.html" id= "ButtonRoute">Route Berekenen</a>
-      <div class="profile-container">
-          <div class="profile-icon" onclick="toggleMenu()">👤</div>
-          <div class="dropdown-menu" id="menu">
-              <p id="username">Naam: </p>
-              <p id="useremail">E-mail: </p>
-              <a href="SignUp.html">Uitloggen</a>
-              <a href="MijnRoutes.html" id="ButtonRoutes">Mijn Routes</a>
-              <a href="Profile.html" id= "ButtonProfile">Profiel</a>
-          </div>
-      </div>
-  </div>
-    <input id="start" placeholder="Startlocatie" type="text" />
-    <input id="end" placeholder="Eindlocatie" type="text" />
-    <button onclick="calculateRoute()">Route berekenen</button>
-    <div id="map"></div>
-    <div id="info">
-      <h3>Afstand</h3>
-      <p id="distance">Geef een route in.</p>
-    </div>
-    <div id="wind-info">
-      <h3>Windinformatie</h3>
-      <p id="wind-details">Nog geen gegevens beschikbaar.</p>
-    </div>
-    <div id="battery-info">
-      <h3>Batterijinformatie</h3>
-      <p id="battery-details">Nog geen gegevens beschikbaar.</p>
-    </div>
+        <link rel="stylesheet" href="RoutesV3.css">
+        <style>
+            #map { height: 500px; width: 100%; }
+        </style>
+    </head>
+    <body>
+        <div class="navbar">
+            <strong>Peeters Cooperation</strong>
+            <a href="Main.html" id ="ButtonHome">Home</a>
+            <a href="Contact.html" id= "ButtonContact">Contact</a>
+            <a href="RoutesV3.html" id= "ButtonRoute">Route Berekenen</a>
+            <div class="profile-container">
+                <div class="profile-icon" onclick="toggleMenu()">👤</div>
+                <div class="dropdown-menu" id="menu">
+                    <p id="username">Naam: </p>
+                    <p id="useremail">E-mail: </p>
+                    <a href="SignUp.html">Uitloggen</a>
+                    <a href="MijnRoutes.html" id="ButtonRoutes">Mijn Routes</a>
+                    <a href="Profile.html" id= "ButtonProfile">Profiel</a>
+                </div>
+            </div>
+        </div>
+        <input id="start" placeholder="Startlocatie" type="text" />
+        <input id="end" placeholder="Eindlocatie" type="text" />
+        <button onclick="calculateRoute()">Route berekenen</button>
+        <div id="map"></div>
+        <div id="info">
+            <h3>Afstand</h3>
+            <p id="distance">Geef een route in.</p>
+        </div>
+        <div id="wind-info">
+            <h3>Windinformatie</h3>
+            <p id="wind-details">Nog geen gegevens beschikbaar.</p>
+        </div>
+        <div id="battery-info">
+            <h3>Batterijinformatie</h3>
+            <p id="battery-details">Nog geen gegevens beschikbaar.</p>
+        </div>
 
-    <script type="module" src="scriptRouteV3.js"></script>
-    <script src="ProjectWillIGetThere.js"></script>
-  </body>
+        <script type="module" src="scriptRouteV3.js"></script>
+        <script src="ProjectWillIGetThere.js"></script>
+    </body>
 </html>
