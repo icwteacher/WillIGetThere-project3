@@ -1,37 +1,50 @@
 <?php
+session_start();
+
 // Pad naar je XML-bestand
 $xmlFile = 'users.xml';
 
 // Ophalen POST-data
-$email      = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+$email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $wachtwoord = filter_input(INPUT_POST, 'wachtwoord', FILTER_DEFAULT);
 
+// Controleer of de velden zijn ingevuld
 if (!$email || !$wachtwoord) {
-    die('Vul e-mail en wachtwoord in.');
+    die('Vul zowel e-mail als wachtwoord in.');
 }
 
+// Controleer of het XML-bestand bestaat
 if (!file_exists($xmlFile)) {
-    die('Nog geen geregistreerde gebruikers.');
+    die('Er zijn nog geen geregistreerde gebruikers.');
 }
 
-// Laad XML
+// Laad het XML-bestand
 $xml = simplexml_load_file($xmlFile);
+if ($xml === false) {
+    die('Fout bij het laden van het XML-bestand.');
+}
 
+// Zoek naar de gebruiker in de XML
 $gevonden = false;
 foreach ($xml->user as $user) {
-    if ((string)$user->email === $email) {
+    if (strcasecmp((string)$user->email, $email) === 0) {
         $gevonden = true;
-        $hash = (string)$user->password;
-        if (password_verify($wachtwoord, $hash)) {
-            echo 'Succesvol ingelogd! Welkom, ' . htmlspecialchars((string)$user->name) . '.';
+        $storedPassword = (string)$user->wachtwoord;
+
+        // Controleer of het wachtwoord klopt
+        if (password_verify($wachtwoord, $storedPassword)) {
+            // Succesvol ingelogd
+            $_SESSION['gebruiker'] = (string)$user->volledige_naam; // Sla de naam op in de sessie
+            header('Location: Main.html'); // Redirect naar Main.html
+            exit;
         } else {
-            echo 'Wachtwoord onjuist.';
+            die('Onjuist wachtwoord.');
         }
-        break;
     }
 }
 
+// Als de gebruiker niet is gevonden
 if (!$gevonden) {
-    echo 'Gebruiker niet gevonden.';
+    die('Gebruiker niet gevonden.');
 }
 ?>

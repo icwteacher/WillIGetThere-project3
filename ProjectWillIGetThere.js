@@ -12,10 +12,24 @@ function toggleMenu() {
         };
         document.getElementById('signupForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            const email = document.getElementById('email').value;
-            const fullname = document.getElementById('volledige_naam').value;
-            const password = document.getElementById('wachtwoord').value;
-            alert(`Account created for ${fullname} with email ${email}`);
+
+            const emailField = document.getElementById('email');
+            const passwordField = document.getElementById('wachtwoord');
+            const fullnameField = document.getElementById('volledige_naam'); // Alleen voor registratiepagina
+
+            if (emailField && passwordField) {
+                const email = emailField.value;
+                const password = passwordField.value;
+
+                if (fullnameField) {
+                    const fullname = fullnameField.value;
+                    alert(`Account created for ${fullname} with email ${email}`);
+                } else {
+                    alert(`Logging in with email: ${email}`);
+                }
+            } else {
+                console.error('Email or password field not found in the DOM.');
+            }
         });
 
        document.addEventListener("DOMContentLoaded", function () {

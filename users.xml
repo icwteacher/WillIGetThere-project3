@@ -5,4 +5,4 @@
         <volledige_naam>John Doe</volledige_naam>
         <wachtwoord>$2y$10$...</wachtwoord>
     </user>
-</users>
+<user><email>thor.vroman@telenet.be</email><name>Thor Vroman</name><password>testing</password></user></users>
