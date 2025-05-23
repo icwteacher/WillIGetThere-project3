@@ -4,6 +4,13 @@
         <meta charset="UTF-8" />
         <title>Mijn Routes</title>
         <link rel="stylesheet" href="ProjectWillIGetTHere.css">
+        <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    h1 { color: #003366; }
+    ul { list-style: none; padding: 0; }
+    li { background: #f2f2f2; margin: 10px 0; padding: 10px; border-radius: 5px; }
+    .datum { font-size: 0.9em; color: #666; }
+  </style>
     </head>
     <body>
         <div class="navbar">
@@ -19,5 +26,24 @@
                 </div>
             </div>
         </div>
+        <div id="mijnRoutes">
+         <h1>Mijn routes</h1>
+
+ <?php if (empty($routes)): ?>
+    <p>Je hebt nog geen routes opgeslagen.</p>
+  <?php else: ?>
+    <ul>
+      <?php foreach ($routes as $route): ?>
+        <li>
+          <div class="datum"><?= htmlspecialchars($route['datum']) ?></div>
+          <strong>Van:</strong> <?= htmlspecialchars($route['vertrek']) ?><br>
+          <strong>Naar:</strong> <?= htmlspecialchars($route['bestemming']) ?>
+        </li>
+      <?php endforeach; ?>
+    </ul>
+  <?php endif; ?>
+
+  <p><a href="routes.php">Nieuwe route toevoegen</a></p>
+</div>
     </body>
 </html>
