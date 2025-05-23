@@ -114,11 +114,11 @@ function fetchWeatherAt(lat, lng, startLocation, endLocation) {
       // Probeer de afstand te parsen
       const distanceKm = parseFloat(distanceText.replace(/[^\d.]/g, "")); // Verwijder alle niet-numerieke tekens behalve punten
       console.log("Parsed distance (km):", distanceKm); // Debugging
-      const batteryNeed = calculateBatteryNeed(distanceKm, windEffect);
+      const batteryNeed = calculateBatteryNeed(distanceKm, windEffect, windSpeed);
 
       // Update de HTML met batterijinformatie
       const batteryDetails = document.getElementById("battery-details");
-      batteryDetails.innerText = `Benodigde energie: ${batteryNeed} Wh`;
+      batteryDetails.innerText = `Benodigde energie: ${batteryNeed} KWh`;
     })
     .catch(error => {
       console.error("Fout bij het ophalen van weergegevens:", error);
@@ -154,14 +154,14 @@ function determineWindEffect(routeAngle, windDirection) {
   }
 }
 
-function calculateBatteryNeed(distanceKm, windEffect) {
+function calculateBatteryNeed(distanceKm, windEffect, windSpeed) {
   const baseEnergyPerKm = 10; // Basisenergieverbruik in Wh per kilometer
   let energyNeeded;
 
   if (windEffect === "Wind mee") {
-    energyNeeded = distanceKm * baseEnergyPerKm * (1 / windFactor); // Minder energie nodig
+    energyNeeded = distanceKm * baseEnergyPerKm * ((0.0351/2.5)*windSpeed); // Minder energie nodig
   } else if (windEffect === "Wind tegen") {
-    energyNeeded = distanceKm * baseEnergyPerKm * windFactor; // Meer energie nodig
+    energyNeeded = distanceKm * baseEnergyPerKm * ((0.0387/2.5)*windSpeed); // Meer energie nodig
   } else {
     energyNeeded = distanceKm * baseEnergyPerKm; // Standaard energieverbruik
   }
