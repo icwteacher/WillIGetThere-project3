@@ -7,6 +7,7 @@
    <link rel="stylesheet" href="ProjectWillIGetTHere.css">
 </head>
 <body>
+    <script src="ProjectWillIGetThere.js"></script>
     <h1>Route Planner</h1>
     <form method="post" action="SignUp.php" >
     <input type="email" name="email" placeholder="Email" required ><br><br>
@@ -20,7 +21,25 @@
     <button type="submit">Aanmelden</button>
     </form>
    
+    <div class="navbar">
+            <strong>Peeters Cooperation</strong>
+            <a href="Main.html" id ="ButtonHome">Home</a>
+            <a href="Contact.html" id= "ButtonContact">Contact</a>
+            <a href="RoutesV3.html" id= "ButtonRoute">Route Berekenen</a>
+            <div class="profile-container">
+                <div class="profile-icon" onclick="toggleMenu()">👤</div>
+                <div class="dropdown-menu" id="menu">
+                    <p id="username">Naam: </p>
+                    <p id="useremail">E-mail: </p>
+                    <a href="SignUp.html">Uitloggen</a>
+                    <a href="MijnRoutes.html" id="ButtonRoutes">Mijn Routes</a>
+                    <a href="Profile.html" id= "ButtonProfile">Profiel</a>
+                </div>
+            </div>
+
 </body>
+
+
 </html>
  
 
