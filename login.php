@@ -27,14 +27,17 @@ if ($xml === false) {
 // Zoek naar de gebruiker in de XML
 $gevonden = false;
 foreach ($xml->user as $user) {
-    if (strcasecmp((string)$user->email, $email) === 0) {
+    $xmlEmail = trim((string)$user->email); // Verwijder witruimtes
+
+    // Controleer of het e-mailadres overeenkomt (hoofdletterongevoelig)
+    if (strcasecmp($xmlEmail, $email) === 0) {
         $gevonden = true;
-        $storedPassword = (string)$user->wachtwoord;
 
         // Controleer of het wachtwoord klopt
-        if (password_verify($wachtwoord, $storedPassword)) {
+        $xmlPassword = trim((string)($user->wachtwoord ?? $user->password)); // Ondersteun beide structuren
+        if ($xmlPassword === $wachtwoord) {
             // Succesvol ingelogd
-            $_SESSION['gebruiker'] = (string)$user->volledige_naam; // Sla de naam op in de sessie
+            $_SESSION['gebruiker'] = trim((string)($user->volledige_naam ?? $user->name));
             header('Location: Main.html'); // Redirect naar Main.html
             exit;
         } else {
