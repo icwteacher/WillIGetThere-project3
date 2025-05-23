@@ -4,7 +4,7 @@ import { WEATHER_API_KEY } from "./config.js";
 let map;
 let directionsService;
 let directionsRenderer;
-let windFactor = 1.2; // Factor voor wind mee of tegen (kan worden aangepast)
+
 
 function initMap() {
   map = new google.maps.Map(document.getElementById("map"), {
@@ -38,11 +38,11 @@ function calculateRoute() {
           console.log("Startlocatie:", startLocation.toString());
           console.log("Eindlocatie:", endLocation.toString());
 
-          // Bereken de route met de geocodeerde locaties
+          // Bereken de route met de locaties
           const request = {
             origin: startLocation,
             destination: endLocation,
-            travelMode: 'BICYCLING'
+            travelMode: 'BICYCLING' 
           };
 
           directionsService.route(request, function(result, status) {
@@ -53,8 +53,9 @@ function calculateRoute() {
 
               // Haal het middelpunt op en roep de Weather API aan
               const midpoint = getMidpoint(route);
-              console.log("Middelpunt coördinaten:", midpoint); // Debugging
+              saveRoute(startAddress, endAddress, route.distance.text);
               fetchWeatherAt(midpoint.lat(), midpoint.lng(), startLocation, endLocation);
+
             } else {
               alert('Route niet gevonden');
             }
@@ -154,8 +155,31 @@ function determineWindEffect(routeAngle, windDirection) {
   }
 }
 
+function saveRoute(startLocatie, Eindlocatie, Afstand) {
+fetch('routes.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      start: start,
+      end: end,
+      distance: distance
+    }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Route opgeslagen:', data);
+    // Optioneel: geef feedback aan de gebruiker dat de route is opgeslagen
+  })
+  .catch((error) => {
+    console.error('Fout bij opslaan route:', error);
+    // Optioneel: geef feedback aan de gebruiker dat het opslaan is mislukt
+  });
+}
+
 function calculateBatteryNeed(distanceKm, windEffect, windSpeed) {
-  const baseEnergyPerKm = 10; // Basisenergieverbruik in Wh per kilometer
+  const baseEnergyPerKm = 0.0369; // Basisenergieverbruik in KWh per kilometer
   let energyNeeded;
 
   if (windEffect === "Wind mee") {
