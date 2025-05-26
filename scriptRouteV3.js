@@ -193,9 +193,9 @@ function calculateBatteryNeed(distanceKm, windEffect, windSpeed) {
   let energyNeeded;
 
   if (windEffect === "Wind mee") {
-    energyNeeded = (distanceKm) * (baseEnergyPerKm * ((0.0351/2.5)*windSpeed)); // Minder energie nodig
+    energyNeeded = (distanceKm) * (baseEnergyPerKm * ((0.0351/2.5)*(windSpeed*3.6))); // Minder energie nodig
   } else if (windEffect === "Wind tegen") {
-    energyNeeded = (distanceKm) * (baseEnergyPerKm * ((0.0387/2.5)*windSpeed)); // Meer energie nodig
+    energyNeeded = (distanceKm) * (baseEnergyPerKm * ((0.0387/2.5)*(windSpeed*3.6))); // Meer energie nodig
   } else {
     energyNeeded = (distanceKm) * baseEnergyPerKm; // Standaard energieverbruik
   }
