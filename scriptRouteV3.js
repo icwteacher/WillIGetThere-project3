@@ -113,7 +113,17 @@ function fetchWeatherAt(lat, lng, startLocation, endLocation) {
       console.log("Distance text:", distanceText); // Debugging
 
       // Probeer de afstand te parsen
-      const distanceKm = parseFloat(distanceText.replace(/[^\d.]/g, "")); // Verwijder alle niet-numerieke tekens behalve punten
+      // Haal het getal (met decimaal) uit de tekst, vervang komma door punt voor parseFloat
+      const match = distanceText.match(/([\d.,]+)/);
+      let distanceKm = 0;
+      if (match && match[1]) {
+        // Haal het getal uit de tekst, vervang komma door punt, parse als float
+        distanceKm = parseFloat(match[1].replace(',', '.'));
+      }
+      // Controleer of distanceKm een geldig getal is
+      if (isNaN(distanceKm)) {
+        distanceKm = 0;
+      }
       console.log("Parsed distance (km):", distanceKm); // Debugging
       const batteryNeed = calculateBatteryNeed(distanceKm, windEffect, windSpeed);
 
@@ -183,15 +193,15 @@ function calculateBatteryNeed(distanceKm, windEffect, windSpeed) {
   let energyNeeded;
 
   if (windEffect === "Wind mee") {
-    energyNeeded = distanceKm * baseEnergyPerKm * ((0.0351/2.5)*windSpeed); // Minder energie nodig
+    energyNeeded = (distanceKm) * (baseEnergyPerKm * ((0.0351/2.5)*windSpeed)); // Minder energie nodig
   } else if (windEffect === "Wind tegen") {
-    energyNeeded = distanceKm * baseEnergyPerKm * ((0.0387/2.5)*windSpeed); // Meer energie nodig
+    energyNeeded = (distanceKm) * (baseEnergyPerKm * ((0.0387/2.5)*windSpeed)); // Meer energie nodig
   } else {
-    energyNeeded = distanceKm * baseEnergyPerKm; // Standaard energieverbruik
+    energyNeeded = (distanceKm) * baseEnergyPerKm; // Standaard energieverbruik
   }
 
   console.log("Energiebehoefte (Wh):", energyNeeded); // Debugging
-  return energyNeeded.toFixed(2); // Rond af op 2 decimalen
+  return (energyNeeded/10).toFixed(4); // Rond af op 4 decimalen
 }
 
 function loadGoogleMapsAPI() {
