@@ -22,5 +22,24 @@
                 </div>
             </div>
         </div>
+
+        <!-- Nieuwe sectie voor gebruikersprofiel details -->
+        <div id="user-profile-details" style="margin-top: 20px; padding: 15px; border: 1px solid #ccc; max-width: 400px; margin-left: auto; margin-right: auto;">
+            <h2>Mijn Profiel</h2>
+            <p><strong>Email:</strong> <span id="user-email"></span></p>
+            <p><strong>Volledige Naam:</strong> <span id="user-fullname"></span></p>
+            <p>
+                <strong>Wachtwoord:</strong>
+                <input type="password" id="user-password" value="" readonly style="border: none; background: none; cursor: default;">
+                <button id="toggle-password">Toon/Verberg</button>
+            </p>
+        </div>
+
+        <!-- Bericht als gebruiker niet gevonden is -->
+        <div id="user-not-found-message" style="display: none; color: red; text-align: center; margin-top: 20px;">
+            <p>Gebruiker niet gevonden of niet ingelogd.</p>
+        </div>
+
     </body>
 </html>
+
