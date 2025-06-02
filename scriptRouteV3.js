@@ -129,7 +129,7 @@ function fetchWeatherAt(lat, lng, startLocation, endLocation) {
 
       // Update de HTML met batterijinformatie
       const batteryDetails = document.getElementById("battery-details");
-      batteryDetails.innerText = `Benodigde energie: ${batteryNeed} KWh`;
+      batteryDetails.innerText = `Benodigde energie: ${batteryNeed} kWh`;
     })
     .catch(error => {
       console.error("Fout bij het ophalen van weergegevens:", error);
@@ -200,8 +200,8 @@ function calculateBatteryNeed(distanceKm, windEffect, windSpeed) {
     energyNeeded = (distanceKm) * baseEnergyPerKm; // Standaard energieverbruik
   }
 
-  console.log("Energiebehoefte (Wh):", energyNeeded); // Debugging
-  return (energyNeeded/10).toFixed(4); // Rond af op 4 decimalen
+  console.log("Energiebehoefte (kWh):", energyNeeded); // Debugging
+  return (energyNeeded).toFixed(4); // Rond af op 4 decimalen
 }
 
 function loadGoogleMapsAPI() {
